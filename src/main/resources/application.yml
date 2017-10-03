@@ -1,0 +1,29 @@
+# ===============================
+# [ Server Properties ]
+# ===============================
+server:
+  port: 9090
+
+# ===============================
+# [ Data Rest Properties ]
+# ===============================
+spring:
+  data:
+    rest:
+      default-page-size: 40
+      return-body-on-create: true
+      return-body-on-update: true
+
+# ===============================
+# [ Logging Properties ]
+# ===============================
+logging:
+  level:
+    com:
+      instinctools:
+        jbpm:
+          gop:
+            pizza:
+              delivery: DEBUG
+    org:
+      springframework: INFO

@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    container_name: pizza-delivery
+    image: neo4j:3.2.3
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=none
+
+  mongodb:
+    container_name: mongo-pizza
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGODB_DATABASE=pizza-delivery

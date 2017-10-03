@@ -1,0 +1,50 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.instinctools.jbpm.gop'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    /**
+     *  Spring dependencies
+     */
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+    compile("org.springframework.boot:spring-boot-starter-undertow")
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile("org.springframework.data:spring-data-rest-hal-browser")
+    compile("org.springframework.boot:spring-boot-starter-data-neo4j")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+
+    /**
+     *  Other dependencies
+     */
+    compileOnly("org.projectlombok:lombok")
+
+    compile("net.sf.dozer:dozer:$dozerVersion")
+
+    /**
+     *  Test dependencies
+     */
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
